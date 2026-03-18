@@ -1,0 +1,32 @@
+==========================================================================================
+
+# PyInstaller CMDs
+
+pyinstaller [FLAGS] your_script.py
+
+## --- BASIC BUNDLING ---
+--onefile          # -F : Create a single executable file (dist/app.exe)
+--onedir           # -D : Create a folder with an exe and dependencies (Default)
+--name "App Name"  # -n : Rename the output executable and .spec file
+
+## --- WINDOWS / GUI OPTIONS ---
+--noconsole        # -w : Hide the terminal/command prompt window on launch
+--icon="icon.ico"  # -i : Apply a custom .ico file to the executable
+--version-file="v.txt" #  Add Windows File Properties (Version, Company, etc.)
+
+## --- INCLUDING EXTERNAL FILES ---
+--add-data "src;dest"  # Include extra files (e.g., "ffmpeg.exe;.") 
+                       # Note: Use ";" on Windows, ":" on Linux/Mac
+
+## --- CLEANUP & OVERWRITING ---
+--clean            # Clear PyInstaller cache and remove temporary files
+--noconfirm        # -y : Overwrite the 'dist' and 'build' folders without asking
+--workpath "path"  # Where to put temporary 'build' files
+--distpath "path"  # Where to put the final 'dist' executable
+
+## --- ADVANCED / DEBUGGING ---
+--hidden-import "mod"  # Force include a module PyInstaller missed
+--collect-all "pkg"    # Grab all data/metadata for a specific package
+--log-level "DEBUG"    # See exactly what's happening if the build fails
+
+==========================================================================================
